@@ -27,9 +27,9 @@ namespace DotNetTutorial.DependencyInjection
         /// Dependency Injection: Method Injection
         /// </summary>
         /// <param name="messageService"></param>
-        public void NotifyFromServices([FromServices] IMessageService messageService)// Dependency injected
+        public void NotifyMethodInjection([FromServices] IMessageService messageService)// Dependency injected
         {
-            Console.WriteLine("NotifyFromServices Dependency Injection Method Injection");
+            Console.WriteLine("NotifyMethodInjection Dependency Injection Method Injection");
             messageService.SendMessage();
         }
     }
