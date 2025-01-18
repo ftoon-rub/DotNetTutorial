@@ -30,7 +30,7 @@ namespace DotNetTutorial.Controllers
         public IActionResult MethodInjection()
         {
             IMessageService messageService = new EmailService();
-            _notificationService.NotifyFromServices(messageService);
+            _notificationService.NotifyMethodInjection(messageService);
             return Ok("test");
         }
     }
