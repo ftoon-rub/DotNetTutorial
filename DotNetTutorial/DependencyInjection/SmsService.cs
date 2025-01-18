@@ -1,7 +1,7 @@
 ﻿namespace DotNetTutorial.DependencyInjection
 {
     /// <summary>
-    /// Low-level module: SmsService (implements IMessageService abstraction)
+    /// Dependency Inversion Principle: Low-level module SmsService (implements IMessageService abstraction)
     /// </summary>
     public class SmsService : IMessageService
     {
