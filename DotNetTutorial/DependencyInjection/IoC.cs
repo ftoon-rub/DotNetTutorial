@@ -1,4 +1,6 @@
-﻿namespace DotNetTutorial.DependencyInjection
+﻿using DotNetTutorial.DependencyInjection.Lifecycle;
+
+namespace DotNetTutorial.DependencyInjection
 {
     public static class IoC
     {
@@ -9,6 +11,9 @@
         /// <returns></returns>
         public static IServiceCollection RegisterCustomService( this IServiceCollection services)
         {
+            services.AddScoped<IInstance, TransientService>();
+            services.AddScoped<IInstance, ScopedService>();
+            services.AddScoped<IInstance, SingletonService>();
             services.AddScoped<IMessageService, EmailService>();
             services.AddScoped<IMessageService, SmsService>();
             services.AddScoped<INotificationService, NotificationService>();
