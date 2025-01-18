@@ -5,6 +5,6 @@ namespace DotNetTutorial.DependencyInjection
     public interface INotificationService
     {
         void Notify();
-        void NotifyFromServices([FromServices] IMessageService messageService);
+        void NotifyMethodInjection([FromServices] IMessageService messageService);// Dependency injected
     }
 }
