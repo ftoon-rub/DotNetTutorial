@@ -11,9 +11,9 @@ namespace DotNetTutorial.DependencyInjection
         /// <returns></returns>
         public static IServiceCollection RegisterCustomService( this IServiceCollection services)
         {
-            services.AddScoped<IInstance, TransientService>();
-            services.AddScoped<IInstance, ScopedService>();
-            services.AddScoped<IInstance, SingletonService>();
+            services.AddTransient<ITransientService, TransientService>();
+            services.AddScoped<IScopedService, ScopedService>();
+            services.AddSingleton<ISingletonService, SingletonService>();
             services.AddScoped<IMessageService, EmailService>();
             services.AddScoped<IMessageService, SmsService>();
             services.AddScoped<INotificationService, NotificationService>();

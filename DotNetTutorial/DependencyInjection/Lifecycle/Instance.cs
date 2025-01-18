@@ -1,7 +1,8 @@
 ﻿namespace DotNetTutorial.DependencyInjection.Lifecycle
 {
-    public class Instance : IInstance
+    public abstract class Instance 
     {
+        public abstract void AddCount();
         public Guid Id { get; set; } = Guid.NewGuid();
     }
 }
