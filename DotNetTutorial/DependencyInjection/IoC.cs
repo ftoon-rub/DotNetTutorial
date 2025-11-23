@@ -1,4 +1,6 @@
-﻿using DotNetTutorial.DependencyInjection.Lifecycle;
+﻿using DotNetTutorial.DependencyInjection.Interfaces;
+using DotNetTutorial.DependencyInjection.Lifecycle;
+using DotNetTutorial.DependencyInjection.Services;
 
 namespace DotNetTutorial.DependencyInjection
 {
@@ -11,12 +13,15 @@ namespace DotNetTutorial.DependencyInjection
         /// <returns></returns>
         public static IServiceCollection RegisterCustomService( this IServiceCollection services)
         {
-            services.AddTransient<ITransientService, TransientService>();
-            services.AddScoped<IScopedService, ScopedService>();
-            services.AddSingleton<ISingletonService, SingletonService>();
             services.AddScoped<IMessageService, EmailService>();
             services.AddScoped<IMessageService, SmsService>();
             services.AddScoped<INotificationService, NotificationService>();
+
+            services.AddScoped<IInstance, TransientService>();
+            services.AddScoped<IInstance, ScopedService>();
+            services.AddScoped<IInstance, SingletonService>();
+            services.AddScoped<IFirstCallServie, FirstCallServie>();
+            services.AddScoped<ISecondCallServie, SecondCallServie>();
             return services;
         }
     }

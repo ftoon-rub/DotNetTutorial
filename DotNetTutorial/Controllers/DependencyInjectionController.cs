@@ -11,16 +11,12 @@ namespace DotNetTutorial.Controllers
     public class DependencyInjectionController : ControllerBase
     {
         private readonly INotificationService _notificationService;
-        private readonly ISingletonService _singletonService;
-        private readonly IScopedService _scopedService;
-        private readonly ITransientService _transientService;
+        private readonly IFirstCallServie _firstCallServie;
 
-        public DependencyInjectionController(INotificationService notificationService, ISingletonService singletonService, IScopedService scopedService, ITransientService transientService)
+        public DependencyInjectionController(INotificationService notificationService, IFirstCallServie firstCallServie)
         {
             _notificationService = notificationService;
-            _singletonService = singletonService;
-            _scopedService = scopedService;
-            _transientService = transientService;
+            _firstCallServie = firstCallServie;
         }
 
         // GET api/<DependencyInjectionController>/ConstructorInjection
@@ -45,10 +41,7 @@ namespace DotNetTutorial.Controllers
         [Route("[action]")]
         public IActionResult Lifecycle()
         {
-            var singleId = _singletonService.toString();
-            var scopedId = _scopedService.toString();
-            var transientId = _transientService.toString();
-            return Ok($"{singleId}\n{scopedId}\n{transientId}");
+            return Ok($"");
         }
     }
 }
